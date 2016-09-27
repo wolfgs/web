@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery第一天</title>
+    <style>
+        div{
+            width: 100%;
+            height: 150px;
+
+            margin-bottom: 10px;
+            background: orange;
+            display: none;
+        }
+        li{
+            width: 100%;
+            height: 100px;
+            background: lightcoral;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+       $(document).ready(function () {
+           var count = 0;
+           $("#dome").click(function () {
+               if (count==0){
+                   $("div").show(100).html("wo shi gs");
+                   count = 1;
+               }else {
+                   $("div").hide(100).html("wo shi gs");
+                   count = 0;
+               }
+
+           });
+           $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
+
+           $("#dome7").click(function () {
+//               $("#li7").show(1000).html("lili7");
+               $body.animate({scrollTop: $('#li7').offset().top}, 1000);
+               return false;// 返回false可以避免在原链接后加上#
+
+           })
+       })
+    </script>
+
+</head>
+<body>
+<input type="button"value="按钮"id="dome">
+<input type="button"value="按钮7"id="dome7">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<ui>
+    <li>wolfgs1</li>
+    <li>wolfgs2</li>
+    <li>wolfgs3</li>
+    <li>wolfgs4</li>
+    <li>wolfgs5</li>
+    <li>wolfgs6</li>
+    <li id="li7">wolfgs7</li>
+    <li>wolfgs8</li>
+    <li>wolfgs1</li>
+    <li>wolfgs2</li>
+    <li>wolfgs3</li>
+    <li>wolfgs4</li>
+    <li>wolfgs5</li>
+    <li>wolfgs6</li>
+    <li>wolfgs7</li>
+    <li>wolfgs8</li>
+    <li>wolfgs9</li>
+    <li>wolfgs10</li>
+</ui>
+</body>
+</html>
